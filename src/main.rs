@@ -6,4 +6,6 @@ pub mod shared;
 async fn main() { 
     println!("Day one part 1 - result {}", day1::part1().await);
     println!("Day one part 2 - result {}", day1::part2().await);
+    println!("Day two part 1 - result {}", day2::part1().await);
+    println!("Day two part 1 - result {}", day2::part2().await);
 }
