@@ -8,7 +8,7 @@ pub async fn get_advent_of_code_input(day: &str) -> Result<String, Error> {
     };
     let request_url = format!("https://adventofcode.com/2021/day/{}/input", day);
     let client = reqwest::Client::new();
-    let _response = client
+    let response = client
         .get(request_url)
         .header("Cookie", format!("{}{}", "session=", &token))
         .send()
@@ -16,10 +16,10 @@ pub async fn get_advent_of_code_input(day: &str) -> Result<String, Error> {
         .text()
         .await?;
 
-    Ok(_response)
+    Ok(response.chars().take(response.len() - 1).collect())
 }
 
-pub async fn map_input<T, E: std::fmt::Debug>(
+pub fn map_input<T, E: std::fmt::Debug>(
     response: Result<String, Error>,
     mapper: fn(String) -> Result<T, E>,
 ) -> Vec<T> {

@@ -13,8 +13,7 @@ pub async fn part2() -> i128 {
         let steps = string_steps.unwrap().parse::<i128>().unwrap();
         let rez = (direction, steps);
         return Ok(rez);
-    })
-    .await;
+    });
 
     let mut depth: i128 = 0;
     let mut horizont: i128 = 0;
